@@ -11,26 +11,36 @@ import UIKit
 class ViewController: UIViewController {
 
     let ballArray = ["ball1", "ball2", "ball3", "ball4", "ball5"]
-    //Array for ball images
+    // Array for ball images
     var ballRandomNumber: Int = 0
-    //variable to hold random number
+    // Variable to hold random number
     
     @IBOutlet weak var imageView: UIImageView!
-    //Outlet for main image
+    // Outlet for main image
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newBallImage()
+    }
+    // Actions upon opening application
+
+    @IBAction func askButtonPressed(_ sender: Any) {
+        newBallImage()
+    }
+    //Button action call
+    
+    func newBallImage() {
         
         ballRandomNumber = Int.random(in: 0 ... 4)
         //Random Number Generator
         imageView.image = UIImage(named: ballArray[ballRandomNumber])
         //Random image generator upon launch
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
-    @IBAction func askButtonPressed(_ sender: Any) {
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        newBallImage()
     }
-    //Button action call
+    // Response from shake gesture
+
 }
 
