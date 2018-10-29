@@ -1,1 +1,1 @@
-# Magic-8-Ball-App
+Magic 8 Ball iOS Application
